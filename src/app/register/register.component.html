@@ -1,0 +1,71 @@
+<div class="container mb-5">
+  <h1>User Registration</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form #userData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <!-- {{userData.value | json}}
+        <hr>
+        {{userModel | json}} -->
+
+        <div class="form-group">
+          <label>First name</label>
+          <input autocomplete="off" type="text" required [class.is-invalid]="firstname.invalid && firstname.touched"
+            #firstname="ngModel" name="firstname" [(ngModel)]="userModel.firstName" class="form-control">
+          <small class="text-danger" *ngIf="firstname.invalid && firstname.touched">First name is
+            required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Last name</label>
+          <input autocomplete="off" type="text" name="lastname" [(ngModel)]="userModel.lastName" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Email Id</label>
+          <input autocomplete="off" type="text" name="emailid" [(ngModel)]="userModel.emailId" class="form-control"
+            required pattern="^[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,4}$" #emailid="ngModel"
+            [class.is-invalid]="emailid.invalid && emailid.touched">
+          <div class="text-danger" *ngIf="emailid.errors && (emailid.touched)">
+            <small *ngIf="emailid.errors.required">Email Id is required</small>
+            <small *ngIf="emailid.errors.pattern">Please enter valid email id</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label> Password</label>
+          <input required #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+            autocomplete="off" type="password" name="password" [(ngModel)]="userModel.password" class="form-control">
+          <small class="text-danger" *ngIf="password.errors.required && password.touched">Password is required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <select required class="custom-select" #gender="ngModel" name="gender" [(ngModel)]="userModel.gender"
+            [class.is-invalid]="gender.invalid && gender.touched">
+            <option value="">I'am...</option>
+            <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+          </select>
+          <small class="text-danger" *ngIf="gender.invalid && gender.touched">Please select your gender</small>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile No</label>
+          <input autocomplete="off" type="tel" required #mobileno="ngModel"
+            [class.is-invalid]="mobileno.invalid && mobileno.touched" pattern="^\d{10}$" class="form-control"
+            name="mobileno" [(ngModel)]="userModel.mobileNo">
+          <div *ngIf="mobileno.errors && (mobileno.invalid && mobileno.touched)">
+            <small class="text-danger" *ngIf="mobileno.errors.required">Mobile no is required</small>
+            <small class="text-danger" *ngIf="mobileno.errors.pattern">Mobile no must be 10 digit</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success"
+         >Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- [disabled]="userData.form.invalid || !genderIsValid" -->

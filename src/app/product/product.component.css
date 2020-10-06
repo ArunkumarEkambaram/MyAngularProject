@@ -1,0 +1,10 @@
+h2{
+  font-size: 30px;
+  color:red;
+}
+
+.img{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Product Details</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      {{getTitle()}}
+    </div>
+  </div>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-6" (click)="parentDivClick()">
+      <p>Example for Event Propagation</p>
+      <button (click)="onSubmit($event)">Submit</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-5">
+      <div class=" form-group">
+        <label>Enter new product</label>
+
+        <!-- <input type="text" class="form-control" #product (keyup.enter)="onKeyUp(product.value)"> -->
+        <!-- <input type="text" class="form-control" [value]="newProduct"
+          (keyup)="newProduct = $event.target.value; onKeyUp()"> -->
+        <input type="text" class="form-control" [(ngModel)]="newProduct">
+
+        <label>New Product name is :{{newProduct}}</label>
+      </div>
+      <button class="btn btn-outline-primary" (click)="onAddNew()">
+        Add New Product</button>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-lg-4">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action"
+        *ngFor="let item of products">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <img src={{imgSrc}} class="img">
+    </div>
+    <div class="col-lg-4">
+      <!-- <img src={{imgOnline}} class="img"> -->
+      <img [src]="imgOnline" class="img">
+    </div>
+  </div>
+</div>

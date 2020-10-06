@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1>Order Details</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <div *ngIf="orders.length>0; then list else nolist"></div>
+      <ng-template #list>
+        <table class="table table-hover table-responsive">
+          <thead class="thead-dark">
+            <tr>
+              <th><label>Order Id</label></th>
+              <th><label> Product Name</label></th>
+              <th><label>Price</label></th>
+              <th><label>Quantity</label></th>
+              <th><label>Order Date</label></th>
+              <th><label>Rating</label></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{order.orderId}} </td>
+              <td>{{order.productName | uppercase}}</td>
+              <td>{{order.price | currency:'INR':true:'5.2-2'}}</td>
+              <td>{{order.quantity | number}}</td>
+              <td>{{order.orderDate|date:"dd-MMM-yyyy"}}</td>
+              <td>{{order.rating | number:'1.1-1'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+      <ng-template #nolist>
+        <h2>No Order Exists</h2>
+      </ng-template>
+    </div>
+  </div>
+</div>

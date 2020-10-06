@@ -1,0 +1,32 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a routerLink="" class="navbar-brand">Home</a>
+  <button class="navbar-toggler" type="button" data-target="#navbar01" data-toggle="collapse" aria-controls="navbar01"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbar01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <!-- <a routerLink="products" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">Product</a> -->
+        <!-- <div class="dropdown-menu"> -->
+        <a routerLink="productlist" class="nav-link">Product List</a>
+        <!-- </div> -->
+      </li>
+      <li class="nav-item">
+        <a routerLink="myorder" class="nav-link">My Order</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="test" class="nav-link">My Test</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav float-right">
+      <li class="nav-item">
+        <a routerLink="register" class="nav-link">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="signin" class="nav-link">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>

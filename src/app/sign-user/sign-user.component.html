@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-5 text-center border border-darken-1 rounded-pill shadow-lg" style="padding:30px;">
+      <div class="form-group row">
+        <label class="col-form-label col-md-4">Email Id</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control" [(ngModel)]="emailId">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-md-4">Password</label>
+        <div class="col-md-7">
+          <input type="password" class="form-control" [(ngModel)]="password">
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-outline-primary" (click)="onValidate()">Sign In</button>
+      </div>
+      <div class="text-center">
+        <label [ngStyle]="{backgroundColor:getStatus()}"
+          [ngClass]="{noerror:isValid(),error:isValid()==false}">
+          {{status}}</label>
+      </div>
+    </div>
+  </div>
+</div>
